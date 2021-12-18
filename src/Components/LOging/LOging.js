@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import useFirebaseApp from '../Hooks/useFirebase';
+import useAuth from '../Hooks/useAuth';
 import './LOging.css';
 
 const LOging = () => {
-	const { LogingWidthGoogle, user } = useFirebaseApp();
+	const { LogingWidthGoogle, user, handelWithEmailAndPassword, HandelEmailChang, HandelPasswordChang, handelReset, } = useAuth();
 
-
+	console.log(HandelEmailChang)
 	return (
 		<div className='loging'>
 
@@ -25,14 +25,22 @@ const LOging = () => {
 								<h2>Log In</h2>
 							</div>
 							<div className="row">
-								<form control="" className="form-group">
+								<form onSubmit={handelWithEmailAndPassword} control="" className="form-group">
+									<p className="text-danger">{user.error}</p>
+
+
+
 									<div className="row">
-										<input type="text" name="username" id="username" className="form__input" placeholder="Username" />
+										<input onBlur={HandelEmailChang} type="text" name="Email" id="username" className="form__input" placeholder="Email" required />
 									</div>
+
+
+
 									<div className="row ">
 
-										<input type="password" name="password" id="password" className="form__input" placeholder="Password" />
+										<input onBlur={HandelPasswordChang} type="password" name="password" id="password" className="form__input" placeholder="Password" required />
 									</div>
+									<button onClick={handelReset}>Reset Password</button>
 
 
 

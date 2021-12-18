@@ -5,16 +5,18 @@ const Details = () => {
     const { id } = useParams();
     const [details, setDetails] = useState([]);
     useEffect(() => {
-        fetch('/healthCare.json')
+        fetch("/healthCare.json")
             .then(res => res.json())
             .then(details => setDetails(details))
     }, [])
 
-console.log(details[id])
+
     return (
         <>
+
             <h1 className='text-center my-5 fw-normal text-success'>Service Details</h1>
             <div className="row text-center p-5 container">
+                
                 <div className="col-md-6">
                     <img src={details[id]?.picture} className='img-fluid' alt="" />
                     <p>{details[id]}</p>

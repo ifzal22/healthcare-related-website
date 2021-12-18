@@ -1,4 +1,4 @@
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebaseApp from "../Firebase/Firebase.innt";
 initializeFirebaseApp();
@@ -10,12 +10,15 @@ const useFirebaseApp = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
-
+    const [name, setName] = useState('');
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [toggle, setToggle] = useState(false);
 
 
-
+    // Google propap sign in
     const LogingWidthGoogle = () => {
         signInWithPopup(auth, provider)
             .then(result => {
@@ -26,7 +29,109 @@ const useFirebaseApp = () => {
             })
     }
 
+    const Handeltoggle = () => {
+        setToggle(false);
+    }
 
+
+
+
+
+
+    const HandelEmailChang = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const HandelPasswordChang = (e) => {
+        if (e.target.value.length < 6) {
+            setError("password must need to be at least 6 characters");
+            return;
+        } else {
+            setPassword(e.target.value);
+            setError('')
+        }
+
+
+        setPassword(e.target.value)
+
+    }
+    // REGISTER
+    const handelREgister = (e) => {
+
+        e.preventDefault();
+        console.log(email, password)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                console.log(result.user);
+                setUser(result.user);
+                verifayEmail(email);
+                setUserName();
+               
+            })
+            .catch((error) => {
+                console.log(error.massage)
+            })
+    }
+
+    // name
+    const handleName = (e) => {
+        setName(e.target.value)
+    }
+
+    // login
+    // Email&Password
+    const handelWithEmailAndPassword = (e, email, password) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                // Signed in 
+
+                setUser(result.user);
+                setError('');
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(errorMessage);
+            });
+    }
+
+
+    // Varification
+
+    const verifayEmail = (email) => {
+        sendEmailVerification(auth, email)
+            .then(() => {
+                // Email verification sent!
+                // ...
+            });
+
+    }
+
+
+    // HandelReset
+    const handelReset = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // Password reset email sent!
+                // ..
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    }
+
+    const setUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(() => {
+
+            }).catch((error) => {
+                setError(error.message)
+            });
+    }
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -51,6 +156,6 @@ const useFirebaseApp = () => {
     }
 
 
-    return { LogingWidthGoogle, user, error, handelLOgOut };
+    return { LogingWidthGoogle, user, error, handelLOgOut, HandelEmailChang, HandelPasswordChang, email, password, name, handelREgister, Handeltoggle, toggle, handelWithEmailAndPassword, verifayEmail, handelReset, handleName };
 }
 export default useFirebaseApp;

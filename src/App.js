@@ -6,8 +6,11 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import LOging from './Components/LOging/LOging';
 import Register from './Components/LOging/Register';
+import NotFound from './Components/NotFound/NotFound';
+import PrivateRoute from './Components/Private/PrivateRoute';
 import Details from './Components/Services/Details/Details';
 import Services from './Components/Services/Services';
+import SErvicesAll from './Components/Services/ServicesAll/SErvicesAll';
 
 function App() {
   return (
@@ -28,10 +31,15 @@ function App() {
          <Route exact path="/services">
            <Services></Services>
          </Route>
-
-         <Route exact path="/services/:id">
-           <Details></Details>
+         <Route exact path="/ServicesAll">
+           <SErvicesAll></SErvicesAll>
          </Route>
+
+   <PrivateRoute exact path="/services/:id">
+           <Details></Details>
+         </PrivateRoute>
+
+
          <Route exact path="/about">
            <About></About>
          </Route>
@@ -42,6 +50,10 @@ function App() {
          </Route>
          <Route exact path ="/Register">
            <Register></Register>
+         </Route>
+
+         <Route path="*">
+           <NotFound></NotFound>
          </Route>
        </Switch>
     

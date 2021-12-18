@@ -6,7 +6,6 @@ import './Header.css';
 const Header = () => {
   const { user, handelLOgOut } = useFirebaseApp();
 
-
   return (
     <div className=''>
       {/* NaVIGAtion */}
@@ -30,7 +29,7 @@ const Header = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link NAVHOVER" to="/services" >Services</Link>
+                <Link className="nav-link NAVHOVER" to="/ServicesAll" >Services</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link NAVHOVER" href="#" to="/about">About</Link>
@@ -43,7 +42,7 @@ const Header = () => {
 
 
 
-              {user?.displayName ? (<li onClick={handelLOgOut} className="nav-item text-deanger">
+              {user?.email ? (<li onClick={handelLOgOut} className="nav-item text-deanger">
                 <Link className="nav-link text-danger NAVHOVER" href="#" to="/loging">LogOut</Link>
               </li>)
                 :
