@@ -4,13 +4,13 @@ import useAuth from '../Hooks/useAuth';
 import './LOging.css';
 
 const LOging = () => {
-	const { LogingWidthGoogle, user, handelWithEmailAndPassword, HandelEmailChang, HandelPasswordChang, handelReset, } = useAuth();
+	const { LogingWidthGoogle, user, handelWithEmailAndPassword, HandelEmailChang, HandelPasswordChang,  } = useAuth();
 
-	console.log(HandelEmailChang)
+	console.log(user)
 	return (
 		<div className='loging'>
 
-			<h1>{user.displayName}</h1>
+			{/* <h1>{user.displayName}</h1> */}
 
 
 			<div className="container-fluid">
@@ -40,12 +40,12 @@ const LOging = () => {
 
 										<input onBlur={HandelPasswordChang} type="password" name="password" id="password" className="form__input" placeholder="Password" required />
 									</div>
-									<button onClick={handelReset}>Reset Password</button>
+								{/* 	<button onClick={handelReset}>Reset Password</button> */}
 
 
 
 									<div className='Icon'>
-										<button type="button" class="btn btn-danger">
+										<button type="submit" class="btn btn-danger">
 											Submit
 										</button>
 										<button onClick={LogingWidthGoogle} type="button" class="btn btn-danger"><i class="fab fa-google"></i></button>

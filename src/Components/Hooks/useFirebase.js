@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebaseApp from "../Firebase/Firebase.innt";
 initializeFirebaseApp();
@@ -64,7 +64,7 @@ const useFirebaseApp = () => {
             .then(result => {
                 console.log(result.user);
                 setUser(result.user);
-                verifayEmail(email);
+               
                 setUserName();
                
             })
@@ -80,13 +80,14 @@ const useFirebaseApp = () => {
 
     // login
     // Email&Password
-    const handelWithEmailAndPassword = (e, email, password) => {
+    const handelWithEmailAndPassword = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
 
                 setUser(result.user);
+                console.log(result.user)
                 setError('');
                 // ...
             })
@@ -100,14 +101,14 @@ const useFirebaseApp = () => {
 
     // Varification
 
-    const verifayEmail = (email) => {
+/*     const verifayEmail = (email) => {
         sendEmailVerification(auth, email)
             .then(() => {
                 // Email verification sent!
                 // ...
             });
 
-    }
+    } */
 
 
     // HandelReset
@@ -156,6 +157,21 @@ const useFirebaseApp = () => {
     }
 
 
-    return { LogingWidthGoogle, user, error, handelLOgOut, HandelEmailChang, HandelPasswordChang, email, password, name, handelREgister, Handeltoggle, toggle, handelWithEmailAndPassword, verifayEmail, handelReset, handleName };
+    return { LogingWidthGoogle, 
+        user,
+         error,
+          handelLOgOut,
+           HandelEmailChang,
+            HandelPasswordChang,
+            email,
+             password, 
+             name,
+              handelREgister,
+              
+              Handeltoggle, 
+              toggle,
+               handelWithEmailAndPassword, 
+               handelReset,
+                handleName };
 }
 export default useFirebaseApp;

@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import About from './Components/About/About';
+import Blog from './Components/Blog/Blog';
 import AuthProvider from './Components/Context/AuthProvider';
+import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import LOging from './Components/LOging/LOging';
@@ -43,6 +45,9 @@ function App() {
          <Route exact path="/about">
            <About></About>
          </Route>
+         <Route exact path="/blog">
+           <Blog></Blog>
+         </Route>
 
          <Route exact path="/LOging">
            <LOging> </LOging>
@@ -52,11 +57,13 @@ function App() {
            <Register></Register>
          </Route>
 
+        
+
          <Route path="*">
            <NotFound></NotFound>
          </Route>
        </Switch>
-    
+    <Footer></Footer>
      </Router>
      </AuthProvider>
     </div>

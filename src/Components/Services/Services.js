@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Services = (props) => {
-    const {picture,company,id,about}= props.datas
+    const {picture,company,id,about}= props.datas ||{}
     console.log(picture)
    
     console.log(props)
@@ -19,7 +19,7 @@ const Services = (props) => {
                     <p>{about.slice(0, 100)}</p>
                     
                     <Link to={`/services/${id}`}>
-                        <button className='btn btn-primary'>Details</button>
+                        <button  className='btn btn-primary'>Details</button>
                     </Link >
                 </div>
             </div>

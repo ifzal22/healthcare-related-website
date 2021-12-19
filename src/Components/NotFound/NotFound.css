@@ -1,0 +1,11 @@
+/* body{
+    background-image: url('https://i.ibb.co/DPFPrvy/2446910-ai.png');
+    background-repeat: no-repeat, repeat;
+    height: 500px;
+} */
+
+.IMG{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}

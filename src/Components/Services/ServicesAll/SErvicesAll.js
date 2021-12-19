@@ -14,41 +14,47 @@ const SErvicesAll = () => {
 
 
     return (
-        <div className='container px-5'>
+        < >
             <div className='mt-5'>
     <h1 className='text-center'>Our Services</h1>
 </div>
-      < >
+      <div className='container'>
 
-      {
-    data.map(datas=><div className=' ' key={datas.id} datas={datas}>
+     <div className='row'>
+     {
+    data.map(datas=><div   className='col-md-4 col-12 '
+    
+    key={datas.id} datas={datas}>
 
-<div className=' mx-2'>
-<div className='text-center  radius-3 col-md-4 my-3 g-1 p-3  card-group'>
-            <div className='card shadow p-3'>
+<>
+
+            <div className=' shadow p-3  mx-auto p-3 border text-center g-3 mx-2 MARG'>
             <div className='p-3'>
                     <img src={datas.picture} alt="" />
                 </div>
                 <div className='py-2 mt-2'>
-                    <h3>{datas.company}</h3>
+                    <h3 className='font-weight-bold'>{datas.company}</h3>
                     <p>{datas.about.slice(0, 100)}</p>
+                    <span text-buld>Phone: {datas.phone} </span>
                     
-                    <Link to={`/services/${datas.id}`}>
+                 
+                </div>
+                <Link to={`/services/${datas.id}`}>
                         <button className='btn btn-primary'>Details</button>
                     </Link >
-                </div>
-            </div>
             </div>
 
-</div>
+</>
 
 
     </div>)
 }
 
 
-      </>
-        </div>
+
+     </div>
+      </div>
+        </>
     );
 };
 

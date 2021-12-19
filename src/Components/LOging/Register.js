@@ -4,10 +4,10 @@ import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
   const {HandelEmailChang,HandelPasswordChang,handelREgister,user,toggle,Handeltoggle,error ,handleName} = useAuth();
- console.log(handleName)
+ console.log(user)
     return (
         <div className=''>
-           <h1>{user.email} </h1>
+           {/* <h1>{user.email} </h1> */}
 
            <div className='container mt-3'>
            <h1 className='text-center text-shadow text-warning'>Please Register</h1>

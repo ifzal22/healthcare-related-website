@@ -1,0 +1,15 @@
+.Body{
+    color: white;
+    background-color: rgb(59, 52, 21);
+}
+.SOCIAl{
+    font-size: 25px;
+    margin: 5px;
+}
+.SOCIAl i{
+    margin: 5px;
+    transition: 0.5s;
+}
+.SOCIAl i:hover{
+    color: red;
+}

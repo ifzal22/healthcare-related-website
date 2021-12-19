@@ -16,21 +16,21 @@ const Banner = () => {
           <div className="carousel-item active ">
             <img className='' src='https://i.ibb.co/M7p5GkQ/forum-slide-1.jpg' className="d-block  w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block ">
-              <h5>First slide label</h5>
+              <h5>Cyclein HealthFull Our Body</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="https://i.ibb.co/5jjSXJC/pexels-victoria-borodinova-4139945.jpg" className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
+              <h5>Margel Art The Bast Way for Exercise</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="https://i.ibb.co/pf2RJv2/blog-slider-image-2.jpg" className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
+              <h5>Good Food </h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
