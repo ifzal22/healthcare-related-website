@@ -97,3 +97,8 @@ img{
 .NAVHOVER{
   transition: 1s;
 }
+.IMGHEADER img{
+  border-radius: 50px;
+width: 100px;
+  
+}

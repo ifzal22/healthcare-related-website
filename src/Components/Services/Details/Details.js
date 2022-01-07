@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 const Details = () => {
     const { id } = useParams();
     const [specificDetail, setSpecificDetail]=useState({});
+    
     const {company,email,address,about,picture,phone}=specificDetail;
 
     const [details, setDetails] = useState([]);

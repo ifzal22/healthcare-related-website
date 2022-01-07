@@ -22,6 +22,8 @@ const Header = () => {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+
+
           <div className="collapse navbar-collapse  NAVVER" id="navbarResponsive">
             <ul className="navbar-nav ms-auto justify-content-center ">
               <li className="nav-item active">
@@ -64,6 +66,8 @@ const Header = () => {
 
 
             </ul>
+
+            <div className='IMGHEADER'><img src={user.photoURL} alt="" /> </div>
           </div>
         </div>
       </nav>
